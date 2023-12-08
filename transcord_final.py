@@ -50,9 +50,7 @@ epsg_options = {
     }
 
 def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
     try:
-        # PyInstaller creates a temp folder and stores path in _MEIPASS
         base_path = sys._MEIPASS
     except Exception:
         base_path = os.path.abspath(".")
@@ -213,8 +211,8 @@ def show_image_in_new_window():
     new_window.title("Brasil UTM")  # Defina um título para a nova janela
 
     # Carregue a imagem usando a biblioteca PIL (Pillow)
-    image_path = r"C:\Users\agrijo\Documents\GitHub\convertcoords\BrasilUTM.png"
-    image = Image.open(image_path)  # Substitua pelo caminho da sua imagem
+    # image_path = r"C:\Users\agrijo\Documents\Pessoal\MeuApp\transcord\icon\BrasilUTM.png"
+    image = Image.open(resource_path("BrasilUTM.png"))  # Substitua pelo caminho da sua imagem
     photo = ImageTk.PhotoImage(image)
 
     # Crie um rótulo para exibir a imagem na nova janela
